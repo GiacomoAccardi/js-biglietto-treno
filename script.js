@@ -23,7 +23,9 @@ let price_discount = 0;
         price_discount = (ticket_price - ( (ticket_price / 100 ) * 20))
   } else if (user_age > 65) {
         price_discount = (ticket_price - ( (ticket_price / 100 ) * 40))   
-  } 
+  } else {
+        price_discount = ticket_price
+  }
 
   console.log(price_discount)
 
