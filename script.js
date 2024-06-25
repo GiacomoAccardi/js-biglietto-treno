@@ -29,4 +29,15 @@ let price_discount = 0;
 
   console.log(price_discount)
 
+// Applichiamo o meno lo sconto al prezzo finale!
+
+let final_price = ticket_price;
+
+if (user_age < 18 || user_age > 65) {
+    final_price = (ticket_price - price_discount)
+} else {
+    final_price = ticket_price
+}
+
+document.getElementById("final_price").innerText = final_price.toFixed(2);
 
