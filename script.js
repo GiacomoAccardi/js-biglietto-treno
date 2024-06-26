@@ -7,31 +7,23 @@ let travel_distance = prompt("Quanti chilometri percorrerà il treno? il costo d
 
 let ticket_price = 0.21 * travel_distance;
 
+let final_price = ticket_price;
+
 // Adesso abbiamo bisogno dell'età del passeggero, chiediamola all'utente
 
 let user_age = prompt("Quanti anni hai? Se hai meno di diciotto anni hai diritto al 20% di sconto! Se sei un over 65, avrai il 40% di sconto! :)");
 
 // Adesso abbiamo l'età del passeggero, stabiliamo a quanto sconto ha diritto in base ad essa
 
-let price_discount = 0;
+let price_discount;
 
   if (user_age < 18) {
-        price_discount = (ticket_price - ( (ticket_price / 100 ) * 20))
+        price_discount = ticket_price * 0.2;
+        final_price = (ticket_price - price_discount);
   } else if (user_age > 65) {
-        price_discount = (ticket_price - ( (ticket_price / 100 ) * 40))   
-  } else {
-        price_discount = ticket_price
+        price_discount = ticket_price * 0.4   
+        final_price = (ticket_price - price_discount)
   }
-
-// Applichiamo o meno lo sconto al prezzo finale!
-
-let final_price = ticket_price;
-
-if (user_age < 18 || user_age > 65) {
-    final_price = (ticket_price - price_discount)
-} else {
-    final_price = ticket_price
-}
 
 document.getElementById("final_price").innerText = final_price.toFixed(2);
 
